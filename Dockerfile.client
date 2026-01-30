@@ -1,7 +1,7 @@
 FROM node:20-slim AS base
 WORKDIR /snailycad
 
-RUN apt-get update -y && apt-get install -y openssl && rm -rf /var/lib/apt/lists/*
+RUN apt-get update -y && apt-get install -y openssl git && rm -rf /var/lib/apt/lists/*
 RUN npm install -g pnpm && pnpm config set httpTimeout 1200000
 
 COPY . ./
@@ -10,6 +10,11 @@ RUN pnpm install --frozen-lockfile
 ENV NODE_ENV="production"
 ENV SENTRY_IGNORE_API_RESOLUTION_ERROR="1"
 ENV NEXT_PUBLIC_DISABLE_SENTRY="true"
+
+ARG NEXT_PUBLIC_CLIENT_URL
+ARG NEXT_PUBLIC_PROD_ORIGIN
+ENV NEXT_PUBLIC_CLIENT_URL=$NEXT_PUBLIC_CLIENT_URL
+ENV NEXT_PUBLIC_PROD_ORIGIN=$NEXT_PUBLIC_PROD_ORIGIN
 
 RUN pnpm turbo run build --filter="{packages/*}"
 
