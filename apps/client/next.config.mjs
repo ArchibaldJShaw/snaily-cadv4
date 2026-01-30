@@ -1,13 +1,5 @@
 import { i18n } from "./i18n.config.mjs";
-import { createRequire } from "node:module";
-const require = createRequire(import.meta.url);
 
-const json = require("./package.json");
-
-/**
- * @template {import("next").NextConfig} T
- * @typedef {T}
- */
 const nextConfig = {
   i18n,
   cleanDistDir: true,
@@ -20,27 +12,22 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  // prettier-ignore
-  images: { // start images
+  images: {
     formats: ["image/avif", "image/webp"],
     remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "i.imgur.com",
-        pathname: "**"
-      },
-      {
-        protocol: "https",
-        hostname: "cdn.discordapp.com",
-        pathname: "**"
-      },
-      {
-        protocol: "http",
-        hostname: "localhost",
-        pathname: "**"
-      },
+      { protocol: "https", hostname: "i.imgur.com", pathname: "**" },
+      { protocol: "https", hostname: "cdn.discordapp.com", pathname: "**" },
+      { protocol: "http", hostname: "localhost", pathname: "**" },
     ]
-  }, // end images
-}; // end config
+  },
+  async rewrites() {
+    return [
+      {
+        source: '/v1/:path*',
+        destination: process.env.API_URL + '/v1/:path*',
+      },
+    ];
+  },
+};
 
 export default nextConfig;
