@@ -27,6 +27,8 @@ RUN pnpm run build
 CMD ["pnpm", "start"]
 
 FROM build AS client
+ENV SENTRY_IGNORE_API_RESOLUTION_ERROR="1"
+ENV NEXT_PUBLIC_DISABLE_SENTRY="true"
 ENV NODE_ENV="production"
 WORKDIR /snailycad/apps/client
 RUN rm -rf /snailycad/apps/client/.next
