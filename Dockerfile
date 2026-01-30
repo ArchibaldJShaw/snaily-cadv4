@@ -15,6 +15,8 @@ RUN pnpm install --frozen-lockfile
 FROM deps AS build
 
 ENV NODE_ENV="production"
+ENV SENTRY_IGNORE_API_RESOLUTION_ERROR="1"
+ENV NEXT_PUBLIC_DISABLE_SENTRY="true"
 
 # Build all packages (this will also build the API and Client)
 RUN pnpm turbo run build --filter="{packages/*}"
@@ -27,9 +29,9 @@ RUN pnpm run build
 CMD ["pnpm", "start"]
 
 FROM build AS client
+ENV NODE_ENV="production"
 ENV SENTRY_IGNORE_API_RESOLUTION_ERROR="1"
 ENV NEXT_PUBLIC_DISABLE_SENTRY="true"
-ENV NODE_ENV="production"
 WORKDIR /snailycad/apps/client
 RUN rm -rf /snailycad/apps/client/.next
 RUN pnpm create-images-domain
