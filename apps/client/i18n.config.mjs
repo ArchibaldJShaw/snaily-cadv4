@@ -13,5 +13,5 @@ export const i18n = {
     "zh-CN",
     "sv",
   ],
-  defaultLocale: "en",
+  defaultLocale: "ru",
 };
