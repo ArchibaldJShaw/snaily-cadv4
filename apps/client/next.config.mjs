@@ -24,7 +24,7 @@ const nextConfig = {
     return [
       {
         source: '/v1/:path*',
-        destination: process.env.API_URL + '/v1/:path*',
+        destination: 'https://cadv4-api-production.up.railway.app/v1/:path*',
       },
     ];
   },
