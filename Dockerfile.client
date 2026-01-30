@@ -10,11 +10,8 @@ RUN pnpm install --frozen-lockfile
 ENV NODE_ENV="production"
 ENV SENTRY_IGNORE_API_RESOLUTION_ERROR="1"
 ENV NEXT_PUBLIC_DISABLE_SENTRY="true"
-
-ARG NEXT_PUBLIC_CLIENT_URL
-ARG NEXT_PUBLIC_PROD_ORIGIN
-ENV NEXT_PUBLIC_CLIENT_URL=$NEXT_PUBLIC_CLIENT_URL
-ENV NEXT_PUBLIC_PROD_ORIGIN=$NEXT_PUBLIC_PROD_ORIGIN
+ENV NEXT_PUBLIC_CLIENT_URL="https://snaily-cadv4-production-eb2c.up.railway.app"
+ENV NEXT_PUBLIC_PROD_ORIGIN="https://cadv4-api-production.up.railway.app/v1"
 
 RUN pnpm turbo run build --filter="{packages/*}"
 
