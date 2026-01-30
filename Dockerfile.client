@@ -1,0 +1,17 @@
+FROM node:20-slim AS base
+WORKDIR /snailycad
+RUN npm install -g pnpm && pnpm config set httpTimeout 1200000
+COPY . ./
+RUN pnpm install --frozen-lockfile
+
+ENV NODE_ENV="production"
+ENV SENTRY_IGNORE_API_RESOLUTION_ERROR="1"
+ENV NEXT_PUBLIC_DISABLE_SENTRY="true"
+
+RUN pnpm turbo run build --filter="{packages/*}"
+
+WORKDIR /snailycad/apps/client
+RUN rm -rf /snailycad/apps/client/.next
+RUN pnpm create-images-domain
+RUN pnpm run build
+CMD ["pnpm", "start"]
