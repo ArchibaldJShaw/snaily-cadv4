@@ -193,3 +193,15 @@ strong {
   right: 1em !important;
   font-size: 1.5em !important;
 }
+
+/* TBH Role-based themes */
+.theme-leo { --tbh-bg: #0a1628; --tbh-bg2: #132744; --tbh-accent: #2563eb; }
+.theme-ems { --tbh-bg: #1a0a0a; --tbh-bg2: #2d1515; --tbh-accent: #dc2626; }
+.theme-dispatch { --tbh-bg: #0f1419; --tbh-bg2: #1e293b; --tbh-accent: #0ea5e9; }
+
+.theme-leo #__next, .theme-ems #__next, .theme-dispatch #__next { background: var(--tbh-bg) !important; }
+.theme-leo .dark\:bg-tertiary, .theme-ems .dark\:bg-tertiary, .theme-dispatch .dark\:bg-tertiary { background: var(--tbh-bg2) !important; }
+.theme-leo .dark\:bg-secondary, .theme-ems .dark\:bg-secondary, .theme-dispatch .dark\:bg-secondary { background: var(--tbh-bg2) !important; }
+.theme-leo .bg-blue-500, .theme-leo .dark\:bg-blue-500 { background-color: var(--tbh-accent) !important; }
+.theme-ems .bg-blue-500, .theme-ems .dark\:bg-blue-500 { background-color: var(--tbh-accent) !important; }
+.theme-dispatch .bg-blue-500, .theme-dispatch .dark\:bg-blue-500 { background-color: var(--tbh-accent) !important; }
