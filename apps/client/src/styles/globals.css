@@ -201,9 +201,9 @@ strong {
 }
 
 /* Role-based colors */
-.theme-leo { --tbh-bg: #0a1628; --tbh-bg2: #0f1d32; --tbh-card: #132744; --tbh-accent: #3b82f6; --tbh-accent-glow: rgba(59,130,246,0.15); }
-.theme-ems { --tbh-bg: #0a150a; --tbh-bg2: #101c10; --tbh-card: #182818; --tbh-accent: #22c55e; --tbh-accent-glow: rgba(34,197,94,0.15); }
-.theme-dispatch { --tbh-bg: #0a1419; --tbh-bg2: #0f1a1f; --tbh-card: #162028; --tbh-accent: #06b6d4; --tbh-accent-glow: rgba(6,182,212,0.15); }
+.theme-leo { --tbh-bg: #111318; --tbh-bg2: #15171d; --tbh-card: #1a1d24; --tbh-accent: #3b82f6; --tbh-accent-glow: rgba(59,130,246,0.15); }
+.theme-ems { --tbh-bg: #111613; --tbh-bg2: #151a16; --tbh-card: #1a201b; --tbh-accent: #22c55e; --tbh-accent-glow: rgba(34,197,94,0.15); }
+.theme-dispatch { --tbh-bg: #111416; --tbh-bg2: #15181b; --tbh-card: #1a1e22; --tbh-accent: #06b6d4; --tbh-accent-glow: rgba(6,182,212,0.15); }
 
 /* Base background */
 .theme-leo #__next, .theme-ems #__next, .theme-dispatch #__next { 
@@ -360,4 +360,73 @@ strong {
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(8px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+/* Layout breathing room */
+.theme-leo main, .theme-ems main, .theme-dispatch main {
+  padding: 24px !important;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+/* Reduce visual density */
+.theme-leo .card, .theme-ems .card, .theme-dispatch .card {
+  padding: 20px !important;
+  margin-bottom: 16px !important;
+}
+
+/* Softer text */
+.theme-leo, .theme-ems, .theme-dispatch {
+  color: rgba(255,255,255,0.85) !important;
+}
+
+.theme-leo p, .theme-leo span, .theme-leo td,
+.theme-ems p, .theme-ems span, .theme-ems td,
+.theme-dispatch p, .theme-dispatch span, .theme-dispatch td {
+  color: rgba(255,255,255,0.7) !important;
+}
+
+.theme-leo h1, .theme-leo h2, .theme-leo h3, .theme-leo th,
+.theme-ems h1, .theme-ems h2, .theme-ems h3, .theme-ems th,
+.theme-dispatch h1, .theme-dispatch h2, .theme-dispatch h3, .theme-dispatch th {
+  color: rgba(255,255,255,0.9) !important;
+}
+
+/* Lighter borders */
+.theme-leo .card, .theme-ems .card, .theme-dispatch .card,
+.theme-leo [class*="border"], .theme-ems [class*="border"], .theme-dispatch [class*="border"] {
+  border-color: rgba(255,255,255,0.04) !important;
+}
+
+/* Reduce table header weight */
+.theme-leo th, .theme-ems th, .theme-dispatch th {
+  font-weight: 500 !important;
+  font-size: 12px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  color: rgba(255,255,255,0.5) !important;
+  padding: 8px 16px !important;
+}
+
+/* Compact buttons */
+.theme-leo button, .theme-ems button, .theme-dispatch button {
+  font-size: 13px !important;
+  padding: 8px 16px !important;
+  font-weight: 500 !important;
+}
+
+/* Sidebar slimmer */
+.theme-leo nav[class*="sidebar"], .theme-ems nav[class*="sidebar"], .theme-dispatch nav[class*="sidebar"],
+.theme-leo aside, .theme-ems aside, .theme-dispatch aside {
+  width: auto !important;
+  min-width: 200px !important;
+  padding: 16px 12px !important;
+}
+
+/* Nav items spacing */
+.theme-leo nav a, .theme-ems nav a, .theme-dispatch nav a {
+  padding: 10px 14px !important;
+  margin: 2px 0 !important;
+  border-radius: 8px !important;
+  font-size: 13px !important;
 }
