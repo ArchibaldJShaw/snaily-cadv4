@@ -17,7 +17,7 @@ export function useTime() {
           timeStyle: "medium",
         });
 
-        ref.current.textContent = `${time} ${timeZone ? `(${timeZone})` : ""}`;
+        ref.current.textContent = time;
       }
     }
 
