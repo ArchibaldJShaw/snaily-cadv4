@@ -40,8 +40,7 @@ export function FullDate({ children, onlyDate, relative, isDateOfBirth }: FullDa
 
       <HoverCardContent pointerEvents>
         <span suppressHydrationWarning className="font-semibold">
-          {dateTime(date, { dateStyle: "full", timeStyle: onlyDate ? undefined : "medium" })}{" "}
-          {timezone ? `(${timezone})` : ""}
+          {dateTime(date, { dateStyle: "full", timeStyle: onlyDate ? undefined : "medium" })}
         </span>
       </HoverCardContent>
     </HoverCard>
