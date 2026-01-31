@@ -74,6 +74,14 @@ export default function App({ Component, router, pageProps, ...rest }: AppProps)
     });
   }, [isMounted, pageProps.cad, locale]);
 
+  React.useEffect(() => {
+    const path = router.pathname;
+    document.body.classList.remove("theme-leo", "theme-ems", "theme-dispatch");
+    if (path.startsWith("/officer")) document.body.classList.add("theme-leo");
+    else if (path.startsWith("/ems-fd")) document.body.classList.add("theme-ems");
+    else if (path.startsWith("/dispatch")) document.body.classList.add("theme-dispatch");
+  }, [router.pathname]);
+
   const requiresDnd = DRAG_AND_DROP_PAGES.includes(router.pathname);
   const DndProviderWrapper = requiresDnd ? DndProvider : React.Fragment;
 
