@@ -202,7 +202,7 @@ strong {
 
 /* Role-based colors */
 .theme-leo { --tbh-bg: #0a1628; --tbh-bg2: #0f1d32; --tbh-card: #132744; --tbh-accent: #3b82f6; --tbh-accent-glow: rgba(59,130,246,0.15); }
-.theme-ems { --tbh-bg: #150a0a; --tbh-bg2: #1c1010; --tbh-card: #2a1818; --tbh-accent: #ef4444; --tbh-accent-glow: rgba(239,68,68,0.15); }
+.theme-ems { --tbh-bg: #0a150a; --tbh-bg2: #101c10; --tbh-card: #182818; --tbh-accent: #22c55e; --tbh-accent-glow: rgba(34,197,94,0.15); }
 .theme-dispatch { --tbh-bg: #0a1419; --tbh-bg2: #0f1a1f; --tbh-card: #162028; --tbh-accent: #06b6d4; --tbh-accent-glow: rgba(6,182,212,0.15); }
 
 /* Base background */
@@ -341,7 +341,7 @@ strong {
 }
 
 .theme-leo ::-webkit-scrollbar-thumb { background: rgba(59,130,246,0.3); border-radius: 3px; }
-.theme-ems ::-webkit-scrollbar-thumb { background: rgba(239,68,68,0.3); border-radius: 3px; }
+.theme-ems ::-webkit-scrollbar-thumb { background: rgba(34,197,94,0.3); border-radius: 3px; }
 .theme-dispatch ::-webkit-scrollbar-thumb { background: rgba(6,182,212,0.3); border-radius: 3px; }
 
 /* Headers - clean typography */
