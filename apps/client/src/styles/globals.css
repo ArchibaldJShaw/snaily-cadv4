@@ -194,14 +194,170 @@ strong {
   font-size: 1.5em !important;
 }
 
-/* TBH Role-based themes */
-.theme-leo { --tbh-bg: #0a1628; --tbh-bg2: #132744; --tbh-accent: #2563eb; }
-.theme-ems { --tbh-bg: #1a0a0a; --tbh-bg2: #2d1515; --tbh-accent: #dc2626; }
-.theme-dispatch { --tbh-bg: #0f1419; --tbh-bg2: #1e293b; --tbh-accent: #0ea5e9; }
+/* TBH Clean Minimal Theme */
+:root {
+  --tbh-radius: 12px;
+  --tbh-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
-.theme-leo #__next, .theme-ems #__next, .theme-dispatch #__next { background: var(--tbh-bg) !important; }
-.theme-leo .dark\:bg-tertiary, .theme-ems .dark\:bg-tertiary, .theme-dispatch .dark\:bg-tertiary { background: var(--tbh-bg2) !important; }
-.theme-leo .dark\:bg-secondary, .theme-ems .dark\:bg-secondary, .theme-dispatch .dark\:bg-secondary { background: var(--tbh-bg2) !important; }
-.theme-leo .bg-blue-500, .theme-leo .dark\:bg-blue-500 { background-color: var(--tbh-accent) !important; }
-.theme-ems .bg-blue-500, .theme-ems .dark\:bg-blue-500 { background-color: var(--tbh-accent) !important; }
-.theme-dispatch .bg-blue-500, .theme-dispatch .dark\:bg-blue-500 { background-color: var(--tbh-accent) !important; }
+/* Role-based colors */
+.theme-leo { --tbh-bg: #0a1628; --tbh-bg2: #0f1d32; --tbh-card: #132744; --tbh-accent: #3b82f6; --tbh-accent-glow: rgba(59,130,246,0.15); }
+.theme-ems { --tbh-bg: #150a0a; --tbh-bg2: #1c1010; --tbh-card: #2a1818; --tbh-accent: #ef4444; --tbh-accent-glow: rgba(239,68,68,0.15); }
+.theme-dispatch { --tbh-bg: #0a1419; --tbh-bg2: #0f1a1f; --tbh-card: #162028; --tbh-accent: #06b6d4; --tbh-accent-glow: rgba(6,182,212,0.15); }
+
+/* Base background */
+.theme-leo #__next, .theme-ems #__next, .theme-dispatch #__next { 
+  background: linear-gradient(135deg, var(--tbh-bg) 0%, var(--tbh-bg2) 100%) !important; 
+}
+
+/* Cards - clean with subtle shadow */
+.theme-leo .card, .theme-ems .card, .theme-dispatch .card,
+.theme-leo .dark\:bg-tertiary, .theme-ems .dark\:bg-tertiary, .theme-dispatch .dark\:bg-tertiary {
+  background: var(--tbh-card) !important;
+  border-radius: var(--tbh-radius) !important;
+  border: 1px solid rgba(255,255,255,0.05) !important;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.2) !important;
+  transition: var(--tbh-transition);
+}
+
+.theme-leo .card:hover, .theme-ems .card:hover, .theme-dispatch .card:hover {
+  border-color: rgba(255,255,255,0.1) !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3) !important;
+}
+
+/* Buttons - accent color with glow */
+.theme-leo .bg-blue-500, .theme-leo .dark\:bg-blue-500,
+.theme-leo button[class*="bg-blue"], .theme-leo [class*="Button"][class*="blue"] {
+  background: var(--tbh-accent) !important;
+  box-shadow: 0 0 20px var(--tbh-accent-glow);
+  border-radius: 8px !important;
+  transition: var(--tbh-transition);
+}
+.theme-ems .bg-blue-500, .theme-ems .dark\:bg-blue-500,
+.theme-ems button[class*="bg-blue"], .theme-ems [class*="Button"][class*="blue"] {
+  background: var(--tbh-accent) !important;
+  box-shadow: 0 0 20px var(--tbh-accent-glow);
+  border-radius: 8px !important;
+  transition: var(--tbh-transition);
+}
+.theme-dispatch .bg-blue-500, .theme-dispatch .dark\:bg-blue-500,
+.theme-dispatch button[class*="bg-blue"], .theme-dispatch [class*="Button"][class*="blue"] {
+  background: var(--tbh-accent) !important;
+  box-shadow: 0 0 20px var(--tbh-accent-glow);
+  border-radius: 8px !important;
+  transition: var(--tbh-transition);
+}
+
+/* Button hover */
+.theme-leo button:hover, .theme-ems button:hover, .theme-dispatch button:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.1);
+}
+
+/* Tables - cleaner rows */
+.theme-leo table, .theme-ems table, .theme-dispatch table {
+  border-collapse: separate !important;
+  border-spacing: 0 4px !important;
+}
+
+.theme-leo tbody tr, .theme-ems tbody tr, .theme-dispatch tbody tr {
+  background: rgba(255,255,255,0.02) !important;
+  border-radius: 8px !important;
+  transition: var(--tbh-transition);
+}
+
+.theme-leo tbody tr:hover, .theme-ems tbody tr:hover, .theme-dispatch tbody tr:hover {
+  background: rgba(255,255,255,0.05) !important;
+}
+
+.theme-leo td, .theme-ems td, .theme-dispatch td {
+  border: none !important;
+  padding: 12px 16px !important;
+}
+
+.theme-leo td:first-child, .theme-ems td:first-child, .theme-dispatch td:first-child {
+  border-radius: 8px 0 0 8px !important;
+}
+
+.theme-leo td:last-child, .theme-ems td:last-child, .theme-dispatch td:last-child {
+  border-radius: 0 8px 8px 0 !important;
+}
+
+/* Inputs - minimal */
+.theme-leo input, .theme-leo select, .theme-leo textarea,
+.theme-ems input, .theme-ems select, .theme-ems textarea,
+.theme-dispatch input, .theme-dispatch select, .theme-dispatch textarea {
+  background: rgba(0,0,0,0.3) !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+  border-radius: 8px !important;
+  transition: var(--tbh-transition);
+}
+
+.theme-leo input:focus, .theme-ems input:focus, .theme-dispatch input:focus,
+.theme-leo select:focus, .theme-ems select:focus, .theme-dispatch select:focus {
+  border-color: var(--tbh-accent) !important;
+  box-shadow: 0 0 0 3px var(--tbh-accent-glow) !important;
+  outline: none !important;
+}
+
+/* Modals - frosted glass effect */
+.theme-leo [role="dialog"], .theme-ems [role="dialog"], .theme-dispatch [role="dialog"] {
+  background: var(--tbh-card) !important;
+  border-radius: 16px !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.5) !important;
+  animation: modalIn 0.2s ease-out;
+}
+
+@keyframes modalIn {
+  from { opacity: 0; transform: scale(0.95) translateY(-10px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* Sidebar/Nav - subtle */
+.theme-leo nav, .theme-ems nav, .theme-dispatch nav,
+.theme-leo aside, .theme-ems aside, .theme-dispatch aside {
+  background: rgba(0,0,0,0.2) !important;
+  border-right: 1px solid rgba(255,255,255,0.05) !important;
+}
+
+/* Status badges - pill style */
+.theme-leo [class*="badge"], .theme-ems [class*="badge"], .theme-dispatch [class*="badge"],
+.theme-leo [class*="Badge"], .theme-ems [class*="Badge"], .theme-dispatch [class*="Badge"] {
+  border-radius: 20px !important;
+  padding: 4px 12px !important;
+  font-weight: 500 !important;
+  font-size: 12px !important;
+}
+
+/* Scrollbar - minimal */
+.theme-leo ::-webkit-scrollbar, .theme-ems ::-webkit-scrollbar, .theme-dispatch ::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.theme-leo ::-webkit-scrollbar-track, .theme-ems ::-webkit-scrollbar-track, .theme-dispatch ::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.theme-leo ::-webkit-scrollbar-thumb { background: rgba(59,130,246,0.3); border-radius: 3px; }
+.theme-ems ::-webkit-scrollbar-thumb { background: rgba(239,68,68,0.3); border-radius: 3px; }
+.theme-dispatch ::-webkit-scrollbar-thumb { background: rgba(6,182,212,0.3); border-radius: 3px; }
+
+/* Headers - clean typography */
+.theme-leo h1, .theme-leo h2, .theme-leo h3,
+.theme-ems h1, .theme-ems h2, .theme-ems h3,
+.theme-dispatch h1, .theme-dispatch h2, .theme-dispatch h3 {
+  font-weight: 600 !important;
+  letter-spacing: -0.02em !important;
+}
+
+/* Subtle animations on load */
+.theme-leo .card, .theme-ems .card, .theme-dispatch .card {
+  animation: fadeUp 0.3s ease-out;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
