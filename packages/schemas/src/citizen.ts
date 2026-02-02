@@ -12,10 +12,10 @@ export const CREATE_CITIZEN_SCHEMA = z.object({
     .max(new Date())
     .describe("ISO format")
     .or(z.string().min(2)),
-  weight: z.string().min(2).max(255),
-  height: z.string().min(2).max(255),
-  hairColor: z.string().min(2).max(255),
-  eyeColor: z.string().min(2).max(255),
+  weight: z.string().max(255).nullish(),
+  height: z.string().max(255).nullish(),
+  hairColor: z.string().max(255).nullish(),
+  eyeColor: z.string().max(255).nullish(),
   address: z.string().min(2).max(255),
   postal: z.string().max(255).nullish(),
   driversLicense: z.string().max(255).nullish(),

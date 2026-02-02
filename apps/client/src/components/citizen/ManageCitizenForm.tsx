@@ -294,6 +294,7 @@ export function ManageCitizenForm({
                 value={values.hairColor}
                 onChange={(value) => setFieldValue("hairColor", value)}
                 name="hairColor"
+                isOptional
               />
 
               <TextField
@@ -302,6 +303,7 @@ export function ManageCitizenForm({
                 value={values.eyeColor}
                 onChange={(value) => setFieldValue("eyeColor", value)}
                 name="eyeColor"
+                isOptional
               />
             </FormRow>
 
@@ -312,6 +314,7 @@ export function ManageCitizenForm({
                 value={values.weight}
                 onChange={(value) => setFieldValue("weight", value)}
                 name="weight"
+                isOptional
               />
 
               <TextField
@@ -320,6 +323,7 @@ export function ManageCitizenForm({
                 value={values.height}
                 onChange={(value) => setFieldValue("height", value)}
                 name="height"
+                isOptional
               />
             </FormRow>
 
