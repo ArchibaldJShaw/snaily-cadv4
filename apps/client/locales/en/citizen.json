@@ -69,6 +69,13 @@
     "huntingLicensePoints": "Hunting License Points",
     "fishingLicensePoints": "Fishing License Points",
     "otherLicenseCategory": "Other License Categories",
+    "lawyerLicense": "Lawyer License",
+    "medicalLicense": "Medical License",
+    "businessLicense": "Business License",
+    "taxiLicense": "Taxi License",
+    "alcoholLicense": "Alcohol License",
+    "securityLicense": "Security License",
+    "substanceLicense": "Substance License",
     "markAsPaid": "Mark As Paid"
   },
   "Vehicles": {

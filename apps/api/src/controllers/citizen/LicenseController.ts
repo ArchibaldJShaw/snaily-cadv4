@@ -66,6 +66,13 @@ export class LicensesController {
         waterLicenseId: suspended?.waterLicense ? undefined : (data.hasWaterLicense ? defaultId : null),
         fishingLicenseId: suspended?.fishingLicense ? undefined : (data.hasFishingLicense ? defaultId : null),
         huntingLicenseId: suspended?.huntingLicense ? undefined : (data.hasHuntingLicense ? defaultId : null),
+        lawyerLicenseId: data.hasLawyerLicense ? defaultId : null,
+        medicalLicenseId: data.hasMedicalLicense ? defaultId : null,
+        businessLicenseId: data.hasBusinessLicense ? defaultId : null,
+        taxiLicenseId: data.hasTaxiLicense ? defaultId : null,
+        alcoholLicenseId: data.hasAlcoholLicense ? defaultId : null,
+        securityLicenseId: data.hasSecurityLicense ? defaultId : null,
+        substanceLicenseId: data.hasSubstanceLicense ? defaultId : null,
       },
       include: citizenInclude,
     });

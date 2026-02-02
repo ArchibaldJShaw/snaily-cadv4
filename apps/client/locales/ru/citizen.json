@@ -69,6 +69,13 @@
     "huntingLicensePoints": "Баллы лицензии на охоту",
     "fishingLicensePoints": "Баллы лицензии на рыбалку",
     "otherLicenseCategory": "Другие категории лицензий",
+    "lawyerLicense": "Адвокатская лицензия",
+    "medicalLicense": "Медицинская лицензия",
+    "businessLicense": "Лицензия на бизнес",
+    "taxiLicense": "Лицензия таксиста",
+    "alcoholLicense": "Лицензия на продажу алкоголя",
+    "securityLicense": "Лицензия охранника",
+    "substanceLicense": "Лицензия на контролируемые вещества",
     "markAsPaid": "Отметить, как оплаченный"
   },
   "Vehicles": {

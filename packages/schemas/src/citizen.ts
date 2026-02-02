@@ -111,7 +111,13 @@ export const LICENSE_SCHEMA = z.object({
   hasWaterLicense: z.boolean(),
   hasFishingLicense: z.boolean(),
   hasHuntingLicense: z.boolean(),
-  suspended: SUSPENDED_SCHEMA.optional(),
+  hasLawyerLicense: z.boolean(),
+  hasMedicalLicense: z.boolean(),
+  hasBusinessLicense: z.boolean(),
+  hasTaxiLicense: z.boolean(),
+  hasAlcoholLicense: z.boolean(),
+  hasSecurityLicense: z.boolean(),
+  hasSubstanceLicense: z.boolean(),
 });
 
 export const MEDICAL_RECORD_SCHEMA = z.object({

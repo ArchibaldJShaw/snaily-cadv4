@@ -24,7 +24,13 @@ export interface LicenseInitialValues {
   hasWaterLicense: boolean;
   hasHuntingLicense: boolean;
   hasFishingLicense: boolean;
-  suspended: Omit<SuspendedCitizenLicenses, "id">;
+  hasLawyerLicense: boolean;
+  hasMedicalLicense: boolean;
+  hasBusinessLicense: boolean;
+  hasTaxiLicense: boolean;
+  hasAlcoholLicense: boolean;
+  hasSecurityLicense: boolean;
+  hasSubstanceLicense: boolean;
 }
 
 export function ManageLicensesModal({
