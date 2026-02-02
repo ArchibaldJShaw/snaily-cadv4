@@ -57,6 +57,7 @@ export function ManageOfficerFields({
           name="badgeNumberString"
           onChange={(value) => setFieldValue("badgeNumberString", value)}
           value={values.badgeNumberString}
+          isOptional
         />
       ) : null}
 
@@ -67,6 +68,7 @@ export function ManageOfficerFields({
           name="callsign"
           onChange={(value) => setFieldValue("callsign", value)}
           value={values.callsign}
+          isOptional
         />
 
         <TextField
@@ -75,6 +77,7 @@ export function ManageOfficerFields({
           name="callsign2"
           onChange={(value) => setFieldValue("callsign2", value)}
           value={values.callsign2}
+          isOptional
         />
       </FormRow>
 
