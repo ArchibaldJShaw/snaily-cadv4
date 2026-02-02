@@ -388,13 +388,10 @@ model Citizen {
   fishingLicenseNumber String?
   lawyerLicense        Value?                        @relation("lawyerLicenseToValue", fields: [lawyerLicenseId], references: [id])
   lawyerLicenseId      String?
-  lawyerLicenseNumber  String?
   medicalLicense       Value?                        @relation("medicalLicenseToValue", fields: [medicalLicenseId], references: [id])
   medicalLicenseId     String?
-  medicalLicenseNumber String?
   substanceLicense     Value?                        @relation("substanceLicenseToValue", fields: [substanceLicenseId], references: [id])
   substanceLicenseId   String?
-  substanceLicenseNumber String?
   businessLicense      Value?                        @relation("businessLicenseToValue", fields: [businessLicenseId], references: [id])
   businessLicenseId    String?
   taxiLicense          Value?                        @relation("taxiLicenseToValue", fields: [taxiLicenseId], references: [id])
@@ -669,6 +666,13 @@ model Value {
   Weapon                          Weapon[]                      @relation("weaponFlags")
   fishingLicenseToValue           Citizen[]                     @relation("fishingLicenseToValue")
   huntingLicenseToValue           Citizen[]                     @relation("huntingLicenseToValue")
+  lawyerLicenseToValue            Citizen[]                     @relation("lawyerLicenseToValue")
+  medicalLicenseToValue           Citizen[]                     @relation("medicalLicenseToValue")
+  substanceLicenseToValue         Citizen[]                     @relation("substanceLicenseToValue")
+  businessLicenseToValue          Citizen[]                     @relation("businessLicenseToValue")
+  taxiLicenseToValue              Citizen[]                     @relation("taxiLicenseToValue")
+  alcoholLicenseToValue           Citizen[]                     @relation("alcoholLicenseToValue")
+  securityLicenseToValue          Citizen[]                     @relation("securityLicenseToValue")
 
   @@index([type])
 }
