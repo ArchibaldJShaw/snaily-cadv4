@@ -81,29 +81,6 @@ export const WEAPON_SCHEMA = z.object({
   reApplyForDmv: z.boolean().nullish(),
 });
 
-const END_TIME = z
-  .date()
-  .min(new Date())
-  .describe("ISO format")
-  .or(z.string().min(2))
-  .nullable()
-  .optional();
-
-const SUSPENDED_SCHEMA = z.object({
-  driverLicense: z.boolean(),
-  driverLicenseTimeEnd: END_TIME,
-  pilotLicense: z.boolean(),
-  pilotLicenseTimeEnd: END_TIME,
-  waterLicense: z.boolean(),
-  waterLicenseTimeEnd: END_TIME,
-  firearmsLicense: z.boolean(),
-  firearmsLicenseTimeEnd: END_TIME,
-  huntingLicense: z.boolean(),
-  huntingLicenseTimeEnd: END_TIME,
-  fishingLicense: z.boolean(),
-  fishingLicenseTimeEnd: END_TIME,
-});
-
 export const LICENSE_SCHEMA = z.object({
   hasDriversLicense: z.boolean(),
   hasPilotLicense: z.boolean(),
