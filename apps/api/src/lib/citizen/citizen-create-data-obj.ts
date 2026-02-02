@@ -79,12 +79,12 @@ export async function citizenObjectFromData(options: Options) {
   if (typeof options.defaultLicenseValueId !== "undefined") {
     obj = {
       ...obj,
-      driversLicenseId: options.data.driversLicense || options.defaultLicenseValueId,
-      weaponLicenseId: options.data.weaponLicense || options.defaultLicenseValueId,
-      pilotLicenseId: options.data.pilotLicense || options.defaultLicenseValueId,
-      waterLicenseId: options.data.waterLicense || options.defaultLicenseValueId,
-      huntingLicenseId: options.data.huntingLicense || options.defaultLicenseValueId,
-      fishingLicenseId: options.data.fishingLicense || options.defaultLicenseValueId,
+      driversLicenseId: options.data.driversLicense ?? options.defaultLicenseValueId,
+      weaponLicenseId: options.data.weaponLicense ?? options.defaultLicenseValueId,
+      pilotLicenseId: options.data.pilotLicense ?? options.defaultLicenseValueId,
+      waterLicenseId: options.data.waterLicense ?? options.defaultLicenseValueId,
+      huntingLicenseId: options.data.huntingLicense ?? options.defaultLicenseValueId,
+      fishingLicenseId: options.data.fishingLicense ?? options.defaultLicenseValueId,
     };
   }
 
