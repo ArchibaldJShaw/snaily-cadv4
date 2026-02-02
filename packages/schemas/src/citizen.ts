@@ -104,22 +104,14 @@ const SUSPENDED_SCHEMA = z.object({
   fishingLicenseTimeEnd: END_TIME,
 });
 
-export const LICENSE_SCHEMA = CREATE_CITIZEN_SCHEMA.pick({
-  driversLicense: true,
-  driversLicenseCategory: true,
-  pilotLicense: true,
-  pilotLicenseCategory: true,
-  weaponLicense: true,
-  firearmLicenseCategory: true,
-  waterLicense: true,
-  waterLicenseCategory: true,
-  fishingLicense: true,
-  fishingLicenseCategory: true,
-  huntingLicense: true,
-  huntingLicenseCategory: true,
-  otherLicenseCategory: true,
-}).extend({
-  suspended: SUSPENDED_SCHEMA.nullish(),
+export const LICENSE_SCHEMA = z.object({
+  hasDriversLicense: z.boolean(),
+  hasPilotLicense: z.boolean(),
+  hasWeaponLicense: z.boolean(),
+  hasWaterLicense: z.boolean(),
+  hasFishingLicense: z.boolean(),
+  hasHuntingLicense: z.boolean(),
+  suspended: SUSPENDED_CITIZEN_LICENSE_SCHEMA.optional(),
 });
 
 export const MEDICAL_RECORD_SCHEMA = z.object({

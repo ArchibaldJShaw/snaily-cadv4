@@ -18,21 +18,13 @@ interface Props {
 }
 
 export interface LicenseInitialValues {
-  driversLicense: string | null;
-  pilotLicense: string | null;
-  weaponLicense: string | null;
-  waterLicense: string | null;
-  huntingLicense: string | null;
-  fishingLicense: string | null;
+  hasDriversLicense: boolean;
+  hasPilotLicense: boolean;
+  hasWeaponLicense: boolean;
+  hasWaterLicense: boolean;
+  hasHuntingLicense: boolean;
+  hasFishingLicense: boolean;
   suspended: Omit<SuspendedCitizenLicenses, "id">;
-
-  driversLicenseCategory: string[];
-  pilotLicenseCategory: string[];
-  waterLicenseCategory: string[];
-  firearmLicenseCategory: string[];
-  huntingLicenseCategory: string[];
-  fishingLicenseCategory: string[];
-  otherLicenseCategory: string[];
 }
 
 export function ManageLicensesModal({

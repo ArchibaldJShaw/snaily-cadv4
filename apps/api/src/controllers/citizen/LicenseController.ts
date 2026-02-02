@@ -8,7 +8,6 @@ import { canManageInvariant } from "lib/auth/getSessionUser";
 import { prisma } from "lib/data/prisma";
 import { validateSchema } from "lib/data/validate-schema";
 import { IsAuth } from "middlewares/auth/is-auth";
-import { updateCitizenLicenseCategories } from "lib/citizen/licenses/update-citizen-license-categories";
 import { isFeatureEnabled } from "lib/upsert-cad";
 import { shouldCheckCitizenUserId } from "lib/citizen/has-citizen-access";
 import type * as APITypes from "@snailycad/types/api";
@@ -41,10 +40,8 @@ export class LicensesController {
     }
 
     const citizen = await prisma.citizen.findUnique({
-      where: {
-        id: citizenId,
-      },
-      include: { dlCategory: true, suspendedLicenses: true },
+      where: { id: citizenId },
+      include: { suspendedLicenses: true },
     });
 
     const checkCitizenUserId = shouldCheckCitizenUserId({ cad, user });
@@ -54,20 +51,21 @@ export class LicensesController {
       throw new NotFound("citizenNotFound");
     }
 
-    await updateCitizenLicenseCategories(citizen, data);
-    const suspendedLicenses = citizen.suspendedLicenses;
+    const defaultLicenseValue = await prisma.value.findFirst({
+      where: { isDefault: true, type: "LICENSE" },
+    });
+    const defaultId = defaultLicenseValue?.id ?? null;
+    const suspended = citizen.suspendedLicenses;
 
     const updated = await prisma.citizen.update({
-      where: {
-        id: citizen.id,
-      },
+      where: { id: citizen.id },
       data: {
-        driversLicenseId: suspendedLicenses?.driverLicense ? undefined : data.driversLicense,
-        pilotLicenseId: suspendedLicenses?.pilotLicense ? undefined : data.pilotLicense,
-        weaponLicenseId: suspendedLicenses?.firearmsLicense ? undefined : data.weaponLicense,
-        waterLicenseId: suspendedLicenses?.waterLicense ? undefined : data.waterLicense,
-        fishingLicenseId: suspendedLicenses?.fishingLicense ? undefined : data.fishingLicense,
-        huntingLicenseId: suspendedLicenses?.huntingLicense ? undefined : data.huntingLicense,
+        driversLicenseId: suspended?.driverLicense ? undefined : (data.hasDriversLicense ? defaultId : null),
+        pilotLicenseId: suspended?.pilotLicense ? undefined : (data.hasPilotLicense ? defaultId : null),
+        weaponLicenseId: suspended?.firearmsLicense ? undefined : (data.hasWeaponLicense ? defaultId : null),
+        waterLicenseId: suspended?.waterLicense ? undefined : (data.hasWaterLicense ? defaultId : null),
+        fishingLicenseId: suspended?.fishingLicense ? undefined : (data.hasFishingLicense ? defaultId : null),
+        huntingLicenseId: suspended?.huntingLicense ? undefined : (data.hasHuntingLicense ? defaultId : null),
       },
       include: citizenInclude,
     });
